@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: url('/images/sunset-salling.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #FFFBA9;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+body.brabrand-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker black filter with 70% opacity */
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+}
+
+body.brabrand-page .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the filter */
+}
+
+.click-anywhere {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.languages {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.languages span {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.languages span.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.container h1 {
+    font-size: 8rem;
+    position: absolute;
+    top: 60%;
+    left: 10%; 
+    transform: translate(-10%, 0);
+    text-align: left;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1rem;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.sunrise-text {
+    font-size: 4rem;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.this-is-text {
+    font-size: 6rem;
+    font-weight: 600;
+    position: absolute;
+    top: 55%;
+    right: 10%;
+    transform: translateY(-50%);
+    text-align: right;
+    z-index: 2;
+}
+
+.number {
+    font-size: 5rem;
+    font-style:italic;
+    position: absolute;
+    top: 63%;
+    right: 10%;
+    text-align: right;
+    z-index: 2;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10%;
+    left: 6%; 
+    font-size: 1.2rem;
+}
+
+.location {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 01.2rem;
+}
+
+.svg-icons {
+    position: absolute;
+    top: 75%; 
+    left: 10%;
+    transform: translate(-10%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .click-anywhere {
+        font-size: 1.18rem;
+        top: 16.5%;
+    }
+
+    .languages {
+        font-size: 1.1rem;
+    }
+
+    .container h1 {
+        font-size: 3.5rem; 
+        top: 58%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .this-is-text {
+        font-size: 2.8rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .number {
+        font-size: 2.5rem;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .footer {
+        font-size: 1rem;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .location {
+        font-size: 1rem;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
+
+/*-------------SECOND PAGE-----------*/
+
+.header a {
+    color: #FFC773;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.header a.active {
+    background-color: #52382B;
+}
+
+.header a:hover {
+    background-color: #52382B;
+}

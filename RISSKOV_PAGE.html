@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risskov River Bench</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/brabrandstyle.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="RISSKOV_PAGE.html" class="active">Home</a>
+        <a href="https://www.google.com/maps/dir/Dommert%C3%A5rn,+8220+Brabrand/56.1492837,10.134261/Kajakklubben+Skjold+B%C3%A5debro,+Bugt,+Aarhus/@56.1517651,10.0728016,16039m/data=!3m1!1e3!4m15!4m14!1m5!1m1!1s0x464c152c9e6a6d5f:0x9c98ca792ef67d27!2m2!1d10.1058197!2d56.1501204!1m0!1m5!1m1!1s0x464c3ef8e5beaf25:0xbcbb82e87b8de680!2m2!1d10.2475522!2d56.1893192!3e2?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank">Map</a>
+        <a href="Favorites.html">Favorites</a>
+        <a href="/404.html">Reviews</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="images/risskov_final_2_cropped.png" alt="Risskov" class="hero-image">
+        <h1>SECOND (02) PLACE</h1>
+        <div class="places-section">
+            <div class="place">
+                <a href="BRABRAND_PAGE.html" class="place-link">PLACE (01)</a>
+            </div>
+            <div class="place active">PLACE (02)</div>
+            <div class="place">
+                <a href="BRABRAND_GROUP.html" class="place-link">PLACE (03)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <main class="content-section">
+        <div class="content-header">
+            <!-- Image Section -->
+            <div class="image">
+                <img src="images/risskovbench.png" alt="Risskov" class="image-phone">
+                <button class="add-to-favorite-brabra" onclick="toggleFavorite()">
+                    Add to Favorite →
+                    <img src="images/add.png" alt="add" class="add-icon" id="favorite-icon">
+                </button>
+                <div id="popup-notification" class="popup-notification">
+                    Added to Favorites!
+                </div>
+            </div>
+            <!-- Description Section -->
+            <article class="description">
+                <div class="brabrand-container lower">
+                    <h3 class="brabrand">RISSKOV</h3>
+                    <div class="img-icons">
+                        <img src="images/Vector.png" alt="star1" class="star1">
+                        <img src="images/Vector.png" alt="star2">
+                    </div>
+                </div>
+                <div class="river-bench-container">
+                    <h3 class="river">AARHUS</h3>
+                    <div class="zerothree-container">
+                        <img src="images/world.png" alt="world" class="world-icon">
+                        <h3 class="zerothree">(02)</h3>
+                    </div>
+                    <h3 class="bench">BAY</h3>
+                    <div class="bench-stars">
+                        <img src="images/Vector.png" alt="star3" class="star3">
+                        <img src="images/Vector.png" alt="star4" class="star4">
+                    </div>
+                </div>
+                <p>
+                    Just a 20-minute walk from the bus stop, Bellevue Beach offers serene views of the Nordic Sea, surrounded by sand and minimal greenery. A single bench provides seating but is weathered and less comfortable. The path is slippery and muddy due to construction, making access challenging. Popular with walkers and runners, the spot is peaceful and ideal for enjoying nature. It’s likely busier in summer, perfect for swimming and sunbathing.
+                </p>
+            </article>
+        </div>
+
+        <!-- Action Boxes -->
+        <section class="boxes">
+            <div class="box">
+                <a class="box-link">RATE ME!</a>
+            </div>
+            <div class="box">
+                <a href="https://maps.app.goo.gl/FabkE1p3NXetLVVf8" class="box-link" target="_blank">LOCATION</a>
+            </div>
+            <div class="box">
+                <a href="https://www.yr.no/en/forecast/daily-table/2-2614718/Denmark/Central%20Jutland/%C3%85rhus/Risskov"
+                    class="box-link" target="_blank">WEATHER</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Overlay Section -->
+    <div class="overlay" id="rateOverlay">
+        <div class="overlay-content">
+            <h2>RATE YOUR PLACE</h2>
+            <textarea placeholder="Write a review..." class="review-textarea"></textarea>
+            <div class="button-container">
+                <button class="cancel-button" onclick="toggleOverlay()">CANCEL</button>
+                <button class="send-button">SEND</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>BY ©RICHARD HOLEVA</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/JAVA/navbar.js"></script>
+    <script src="/JAVA/places.js"></script>
+    <script src="/JAVA/add_favorite.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', checkFavorite);
+    </script>
+    <script src="rateme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,775 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(
+        0deg, 
+        rgba(0, 0, 0, 0.6), /* Semi-transparent dark overlay */
+        rgba(0, 0, 0, 0.6)
+    ), 
+    linear-gradient(
+        0deg, 
+        #B3553B 0%,  /* Original B3553B */
+        #D27D4E 50%, /* Original D27D4E */
+        #CF8B6E 100% /* Original CF8B6E */
+    ); /* Combined with dark overlay */
+    color: #F1C27D;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* Remove the navbar-background styles */
+.navbar-background {
+    display: none;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Ensure it's above the navbar background */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #F1C27D;
+    z-index: 2; /* Ensure it is above the navbar background */
+    position: relative;
+    background-color: rgba(60, 30, 20, 0.5); /* Add black background with 50% opacity */
+}
+
+.navbar a {
+    color: #F1C27D;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.01s ease, border-radius 0.01s ease;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.navbar a:hover:not(.active) {
+    text-decoration: underline;
+}
+
+.navbar a:hover:active {
+    text-decoration: none;
+}
+
+.navbar a.active {
+    background-color: rgba(241, 195, 125, 0.8);
+    border-radius: 10px;
+    color: #000000; /* Change font color to black */
+    line-height: 1rem;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 1rem; /* Add padding to create a square background */
+    text-decoration: none; /* Ensure no underline on hover for active item */
+}
+
+.navbar a[href*="google.com/maps"] {
+    background-color: transparent; /* Remove background for Map link */
+}
+
+.hero-section {
+    text-align: center;
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: -4rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    z-index: 0;
+    filter: brightness(50%); /* Add black filter */
+    position: relative;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 300; /* Make the text lighter */
+    font-style: italic; /* Make the text italic */
+    margin: 0;
+    color: #F1C27D;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.places-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 100%;
+    gap: 2rem;
+}
+
+.place {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #F1C27D;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: text-decoration 0.3s ease;
+}
+
+.place.active {
+    text-decoration: underline;
+}
+
+.place:hover:not(.active) {
+    text-decoration: underline;
+}
+
+.place-link {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none;
+}
+
+.image-phone {
+    width: 100%; /* Adjust the width of the main image as needed */
+    height: auto;
+    display: block;
+    margin: 2rem 0 0 2rem; /* Adjust margin as needed */
+    border-radius: 10px;
+    filter: brightness(65%);
+    position: relative; /* Set relative to position children inside this container */
+}
+
+.image-phone-risskov {
+    width: 30%; /* Adjust the width of the main image as needed */
+    height: auto;
+    display: block;
+    margin: 2rem 0 0 2rem; /* Adjust margin as needed */
+    border-radius: 10px;
+    filter: brightness(50%);
+    position: relative; /* Set relative to position children inside this container */
+}
+
+.image-picnic {
+    width: 30%; /* Adjust the width of the main image as needed */
+    height: auto;
+    display: block;
+    margin: 2rem 0 0 2rem; /* Adjust margin as needed */
+    border-radius: 10px;
+    filter: brightness(75%);
+    position: relative; /* Set relative to position children inside this container */
+}
+
+.content-header {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensure it wraps on smaller screens */
+    padding: 2rem;
+}
+
+.image {
+    width: 40%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.description {
+    width: 60%;
+    flex: 1;
+    padding: 2.5rem;;
+    color: #F1C27D;
+    align-self: flex-start; /* Align the description text at the start */
+}
+
+
+.description p {
+    font-size: 2.8rem; /* Increase the font size of the description text */
+    margin-top: 0.5rem; /* Reduce space above */
+    font-weight: 100;
+}
+
+.description .brabrand {
+    font-size: 5.3rem; /* Slightly smaller than "RIVER BENCH" */
+    margin-top: -0.5rem; /* Move the text higher */
+    margin-bottom: 0.5rem; /* Reduce space below */
+    font-weight: 400; /* Make the text thinner */
+}
+
+.brabrand-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Adjust gap as needed */
+}
+
+.brabrand-container.lower {
+    margin-top: 5rem; /* Adjust the value to move the container even lower */
+}
+
+.river-bench-container {
+    display: flex;
+    gap: 6rem; /* Increase gap between "RIVER" and "BENCH" */
+}
+
+.description .river {
+    font-size: 6rem; /* Keep the size for "RIVER" */
+    margin-top: -2rem; /* Move the text higher */
+    margin-bottom: 0.5rem; /* Reduce space below */
+    font-weight: 400; /* Make the text thinner */
+}
+
+.description .bench {
+    font-size: 6rem; /* Keep the size for "BENCH" */
+    margin-top: -2rem; /* Move the text higher */
+    margin-bottom: 0.5rem; /* Reduce space below */
+    font-weight: 300; /* Make the text thinner */
+}
+
+.bench-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem; /* Reduce gap to bring stars closer */
+    margin-left: 0.5rem; /* Reduce margin to position stars closer to "BENCH" */
+}
+
+.star3 {
+    position: relative;
+    top: -1.5rem; 
+    right: 65%;
+}
+
+.star4 {
+    position: relative;
+    top: -3.5rem; /* Align stars with the "BENCH" text */
+    right: 65%;
+}
+
+.description .zerothree {
+    font-size: 3.5rem; /* Keep the size consistent */
+    margin-top: rem; /* Adjust margin to align with "RIVER" and "BENCH" */
+    margin-bottom: 1rem; /* Reduce space below */
+    font-weight: 300; /* Make the text thinner */
+    font-style: italic; /* Make the text italic */
+    position: relative; /* Position relative to adjust vertical alignment */
+    top: 1rem; /* Move the text lower */
+}
+
+.zerothree-container {
+    position: relative;
+    display: inline-block;
+}
+
+.zerothree {
+    position: relative;
+    z-index: 1;
+}
+
+.world-icon {
+    position: absolute;
+    top: -0.1rem; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem; /* Adjust size as needed */
+    height: auto;
+    z-index: 2;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-evenly; /* Reduce spacing between the squares */
+    align-items: center;
+    margin-top: 2rem; /* Spacing above the boxes */
+    gap: 1.5rem; /* Slightly larger gap for bigger boxes */
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-evenly; /* Reduce spacing between the squares */
+    align-items: center;
+    margin-top: 2rem; /* Spacing above the boxes */
+    gap: 1.5rem; /* Slightly larger gap for bigger boxes */
+}
+
+.box {
+    flex: 0 0 250px; /* Fixed width for squares */
+    height: 250px; /* Fixed height for squares */
+    text-align: center;
+    line-height: 250px; /* Center text vertically */
+    color: #F1C27D; /* Text color */
+    font-size: 2rem; /* Increase text size for better proportion */
+    font-weight: 600;
+    background-color: #8a5e549c; /* Brighter version of the box color */
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow behind boxes */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth shadow on hover */
+}
+
+.box:hover {
+    background-color: #F1C27D; /* Change background on hover */
+    color: #8A5E54; /* Change text color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4); /* Deepen shadow on hover */
+}
+
+/* Add styles for the box links */
+.box-link {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the link cover the entire box */
+    width: 100%;
+    /*height: 100%;
+    line-height: 250px;  Center text vertically */
+}
+
+/* Ensure the box links look like before */
+.box-link:hover {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+}
+
+footer {
+    text-align: center;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1rem;
+    color: #F1C27D;
+    margin-top: auto; /* Push footer to the bottom */
+    padding: 1.5rem 0; /* Add spacing inside the footer */
+    position: relative; /* Ensure it doesn’t overlap with other elements */
+}
+
+.content-section {
+    flex: 1; /* Allow the content section to grow and take up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure spacing between content and footer */
+    padding-bottom: 3rem; /* Add padding to prevent overlap with footer */
+}
+
+.img-icons img:nth-child(2) {
+    margin-left: 1rem; 
+}
+
+.star1 {
+    position: relative;
+    top: -2.5rem; /* Adjust the value to move the star higher */
+}
+
+.add-to-favorite {
+    font-size: 2rem;
+    font-weight: 200; /* Use a lighter supported weight */
+    font-style: italic;
+    color: #F1C27D;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    bottom: 5rem; /* Move higher */
+    left: 5rem;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Raleway', Arial, sans-serif; /* Include fallback font */
+}
+
+.add-icon {
+    width: 2.5rem; /* Adjust size as needed */
+    height: auto;;
+    margin-left: 0.5rem; /* Space between text and icon */
+    vertical-align: middle; /* Align icon with text */
+}
+
+
+.add-to-favorite-brabra {
+    font-size: 2.5rem;
+    font-weight: 200; /* Use a lighter supported weight */
+    font-style: italic;
+    color: #F1C27D;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    bottom: 1.5rem; /* Move higher */
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Raleway', Arial, sans-serif; /* Include fallback font */
+}
+
+.add-to-favorite-together {
+    font-size: 3em;
+    font-weight: 200; /* Use a lighter supported weight */
+    font-style: italic;
+    color: #F1C27D;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    bottom: 4rem; /* Move higher */
+    left: 5rem;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Raleway', Arial, sans-serif; /* Include fallback font */
+}
+
+.popup-notification {
+    position: absolute;
+    bottom: 4.8rem; /* Position above the add icon */
+    left: 80%;
+    transform: translateX(-50%);
+    background-color: #F1C27D;
+    color: #8A5E54;
+    padding: 0.1rem 0.rem; /* Make it smaller */
+    border-radius: 3px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 0.6rem; /* Smaller font size */
+    width: auto;
+    font-weight: 600;
+    display: none;
+    z-index: 3;
+    height: auto;
+}
+
+.popup-notification-risskov {
+    position: absolute;
+    bottom: 8.8rem; /* Position above the add icon */
+    left: 25%;
+    transform: translateX(-50%);
+    background-color: #F1C27D;
+    color: #8A5E54;
+    padding: 0.2rem 0.5rem; /* Make it smaller */
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1rem; /* Smaller font size */
+    font-weight: 600;
+    display: none;
+    z-index: 3;
+}
+
+.popup-notification-together {
+    position: absolute;
+    bottom: 7.2rem; /* Position above the add icon */
+    left: 25%;
+    transform: translateX(-50%);
+    background-color: #F1C27D;
+    color: #8A5E54;
+    padding: 0.2rem 0.5rem; /* Make it smaller */
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1rem; /* Smaller font size */
+    font-weight: 600;
+    display: none;
+    z-index: 3;
+}
+
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+.overlay-content {
+    background: #5A382B;
+    padding: 2rem 5rem 4rem 5rem; /* Increase padding */
+    border-radius: 15px;
+    text-align: center;
+    color: #F1C27D;
+    width: 800px; /* Double the width */
+    position: relative;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.overlay-content h2 {
+    font-size: 3rem; /* Increase font size */
+    margin-bottom: 1rem; /* Adjust margin to move text higher */
+    font-weight: 500;
+}
+
+.review-textarea {
+    width: 100%;
+    height: 250px; /* Double the height */
+    border: none;
+    border-radius: 10px;
+    background: #CFCFCF;
+    color: #5A382B;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.cancel-button,
+.send-button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-button {
+    background: #CFCFCF;
+    color: #5A382B;
+}
+
+.cancel-button:hover {
+    background: #8A5E54;
+    color: #F1C27D;
+}
+
+.send-button {
+    background: #8A5E54;
+    color: #F1C27D;
+}
+
+.send-button:hover {
+    background: #F1C27D;
+    color: #8A5E54;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 0.4rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .hero-section {
+        height: auto;
+        margin-top: 0;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        filter: brightness(40%);
+        object-fit: cover;
+    }
+
+    .hero-section h1 {
+        font-size: 1rem;
+        top: 50%;
+    }
+
+    .places-section {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .place {
+        font-size: 0.8rem;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .river-bench-container {
+        display: flex;
+        gap: 1rem; /* Increase gap between "RIVER" and "BENCH" */
+        flex-direction: column;
+    }
+
+    .image {
+        width: 70%;
+        margin: 0 auto 1.5rem auto;
+        right: 5%;
+    }
+
+    .description {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .description p {
+        font-size: 1.2rem;
+        text-align: justify;
+        margin-top: -1.2rem;
+    }
+
+    .description .brabrand {
+        font-size: 2.5rem;
+    }
+
+    .description .river{
+        font-size: 2.5rem;
+        margin-top: -1rem;
+    }
+    .description .bench {
+        font-size: 2.5rem;
+        margin-top: -11.5rem;
+    }
+
+    .zerothree {
+        font-size: 1.5rem;
+        position: absolute; /* Removes it from normal document flow */
+        left: 16rem; /* Optional: Align it properly if necessary */
+        transform: translateY(-180%); /* Fine-tune vertical alignment */
+    }
+
+    .world-icon {
+        width: 1.5rem;
+        height: auto;
+    }
+
+    .bench-stars img,
+    .img-icons img {
+    width: 1rem;
+    height: auto;
+    margin-top: 1rem; /* Change to a positive value to move them lower */
+    }
+
+    .add-to-favorite-brabra {
+        font-size: 1.2rem;
+        bottom: 1rem;
+        left: 2.5rem;
+    }
+
+    .add-icon {
+        width: 1.7rem;
+        height: auto;
+        margin-left: 0.5rem;
+    }
+
+    .boxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 2rem 0;
+        justify-content: center;
+    }
+
+    .box {
+        flex: 0 0 90px;
+        height: auto;
+        color: #F1C27D;       
+        font-weight: 600;
+        background-color: #8a5e549c;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        aspect-ratio: 1 / 1;
+        line-height: normal;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box:active {
+        transition: none; /* Disables animation on active state */
+    }
+
+    .popup-notification {
+        bottom: 3rem;
+        left: 85%;
+        font-size: 0.4rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .overlay-content {
+        width: 40%; /* Reduce width to make it fit better on smaller screens */
+        padding: 1.5rem; /* Reduce padding for smaller size */
+        max-height: 60%; /* Ensure it doesn't take up too much vertical space */
+        right: 6.5rem;
+        top: 10rem;
+    }
+    
+    .overlay-content h2 {
+        font-size: 1.5rem; /* Reduce font size for the heading */
+        margin-bottom: 0.5rem; /* Adjust spacing */
+    }
+    
+    .review-textarea {
+        width: 220px;
+        height: 100px; /* Reduce height for mobile screens */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+    
+    .cancel-button,
+    .send-button {
+        font-size: 0.8rem; /* Reduce font size for buttons */
+        padding: 0.4rem 0.8rem; /* Adjust button padding */
+        margin: 0.5rem; /* Add some spacing between buttons */
+    }
+    footer {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+}
+
+
+
+

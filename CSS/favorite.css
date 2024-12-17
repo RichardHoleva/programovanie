@@ -1,0 +1,341 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(
+        0deg, 
+        rgba(0, 0, 0, 0.2), /* Semi-transparent dark overlay */
+        rgba(0, 0, 0, 0.2)
+    ), 
+    linear-gradient(
+        0deg, 
+        #B3553B 0%,  /* Original B3553B */
+        #D27D4E 50%, /* Original D27D4E */
+        #CF8B6E 100% /* Original CF8B6E */
+    ); /* Combined with dark overlay */
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes the full height of the viewport */
+    position: relative; /* Set relative positioning for pseudo-element */
+}
+
+/* Semi-transparent black overlay */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place it behind all content */
+}
+
+/* Main container */
+.container {
+    text-align: center;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    flex: 1; /* Allow container to take up remaining space */
+    z-index: 1; /* Ensure content is above the overlay */
+}
+
+/* Title alignment */
+h1 {
+    margin-top: 70px;
+    font-size: 5rem;
+    font-weight: 600;
+    color: #FBEBD3;
+    margin-bottom: 5rem; /* Space between title and next element */
+    width: 100%;
+    text-align: center;
+    z-index: 1; /* Ensure title appears above the overlay */
+}
+
+/* Favorites Section */
+.favorites-section {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    flex-wrap: wrap; /* Wrap items to the next row if they don't fit */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 1rem; /* Add spacing between items */
+    align-items: center; /* Center items horizontally */
+    padding: 3rem;
+    background: none;
+    border: none;
+    width: 100%;
+    max-width: 1000px;
+    z-index: 1; /* Ensure section appears above the overlay */
+}
+
+/* Empty Placeholder */
+.empty-placeholder {
+    text-align: center;
+    font-size: 2rem;
+    color: #FBEBD3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content higher */
+    margin-top: 10rem; /* Push the placeholder lower */
+    margin-bottom: 5rem; /* Add space below the text and button */
+}
+
+/* Paragraph inside placeholder */
+.empty-placeholder p {
+    margin-bottom: 1.5rem;
+}
+
+/* Home Button */
+.home-button {
+    background-color: #FBEBD3;
+    color: #B3553B;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem; /* Adds space between text and button */
+}
+
+.home-button:hover {
+    background-color: #8A5E54;
+    color: #FBEBD3;
+}
+
+/* Footer alignment */
+footer {
+    font-family: 'Raleway', sans-serif; /* Explicitly declare the font family */
+    font-weight: 100; /* Set font weight */
+    font-style: italic;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #FBEBD3;
+    margin-top: auto;
+    padding: -1.5rem 0;
+    width: 100%;
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Ensure it's above the navbar background */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #F1C27D;
+    background-color: rgba(60, 30, 20, 0.5); /* Add black background with 50% opacity */
+}
+
+.navbar a {
+    color: #F1C27D;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.01s ease, border-radius 0.01s ease;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.navbar a.active {
+    background-color: rgba(241, 195, 125, 0.8);
+    border-radius: 10px;
+    color: #000000; /* Change font color to black */
+    line-height: 1rem;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 1rem; /* Add padding to create a square background */
+    text-decoration: none; /* Ensure no underline on hover for active item */
+}
+
+.favorites-section {
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    flex-wrap: wrap; /* Wrap items to the next row if they don't fit */
+    justify-content: center; /* Align items to the left */
+    gap: 1.5rem; /* Add more space between items */
+    padding: 2rem; /* Add padding around the section */
+}
+
+.favorite-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 250px; /* Increase the width */
+    height: auto;
+    margin: 0.5rem; /* Add margin to create space between cards */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.favorite-card img {
+    width: 100%;
+    height: auto; /* Increase the height for larger images */
+    border-radius: 10px;
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px; /* Slightly larger button for better visibility */
+    height: 30px;
+    font-size: 1rem;
+}
+
+.favorite-title {
+    margin-top: 0.8rem;
+    font-size: 1.2rem; /* Increase font size */
+    color: #FBEBD3;
+    text-align: center;
+}
+
+/* General styles remain the same as provided above */
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .navbar {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 3rem;
+    }
+
+    .favorites-section {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .favorite-card {
+        width: 200px; /* Adjust card size for tablets */
+    }
+
+    .favorite-title {
+        font-size: 1.1rem;
+    }
+
+    .home-button {
+        font-size: 2rem; /* Reduce button size */
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: flex-start; /* Align items to the left */
+        padding: 0.5rem 1rem; /* Add padding to the left for better spacing */
+        font-size: 0.9rem;
+        text-align: center; /* Ensure text is aligned to the left */
+    }
+
+    .navbar a {
+        margin: 0.5rem; /* Add spacing between links */
+        padding: 0.3rem 0.8rem; /* Adjust padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 3rem; /* Smaller title */
+        margin-bottom: 2rem;
+    }
+
+    .favorites-section {
+        gap: 0.8rem;
+    }
+
+    .favorite-card {
+        width: 180px; /* Adjust card size for smaller devices */
+    }
+
+    .favorite-title {
+        font-size: 1rem;
+    }
+
+    .remove-button {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 0.4rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Smaller title */
+        margin-bottom: 1.5rem;
+    }
+
+    .favorites-section {
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .favorite-card {
+        width: 100%; /* Full width for cards on small screens */
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .favorite-title {
+        font-size: 0.9rem;
+    }
+
+    .home-button {
+        font-size: 1.5rem; /* Smaller button */
+        padding: 0.5rem 1rem;
+    }
+
+    footer {
+        font-size: 0.7rem;
+    }
+}
+
+
