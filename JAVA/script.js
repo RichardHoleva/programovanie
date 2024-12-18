@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.body.addEventListener('click', () => {
-        window.location.href = 'html/brabrand_page.html'; // Redirect to brabrand_page.html
+        window.location.href = '../html/brabrand_page.html'; // Redirect to brabrand_page.html
     });
 });
