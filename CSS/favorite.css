@@ -121,7 +121,7 @@ footer {
     font-size: 0.9rem;
     color: #FBEBD3;
     margin-top: auto;
-    padding: -1.5rem 0;
+    padding: 0; /* Set padding to 0 to avoid errors */
     width: 100%;
 }
 
