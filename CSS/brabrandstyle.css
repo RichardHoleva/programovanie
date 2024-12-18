@@ -281,7 +281,6 @@ body {
 
 .description .zerothree {
     font-size: 3.5rem; /* Keep the size consistent */
-    margin-top: rem; /* Adjust margin to align with "RIVER" and "BENCH" */
     margin-bottom: 1rem; /* Reduce space below */
     font-weight: 300; /* Make the text thinner */
     font-style: italic; /* Make the text italic */
@@ -459,7 +458,7 @@ footer {
     transform: translateX(-50%);
     background-color: #F1C27D;
     color: #8A5E54;
-    padding: 0.1rem 0.rem; /* Make it smaller */
+    padding: 0.1rem; /* Make it smaller */
     border-radius: 3px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     font-size: 0.6rem; /* Smaller font size */
