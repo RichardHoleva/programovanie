@@ -18,12 +18,12 @@ function toggleFavorite() {
     if (existing) {
         // Remove from favorites if already added
         favorites = favorites.filter(fav => fav.url !== imageURL);
-        icon.src = 'images/add.png';
+        icon.src = '../images/add.png';
         popup.textContent = 'Removed from Favorites!';
     } else {
         // Add to favorites if not present
         favorites.push({ url: imageURL, title: imageTitle });
-        icon.src = 'images/added.png';
+        icon.src = '../images/added.png';
         popup.textContent = 'Added to Favorites!';
     }
 
@@ -49,9 +49,9 @@ function checkFavorite() {
     const existing = favorites.find(fav => fav.url === imageURL);
 
     if (existing) {
-        icon.src = 'images/added.png';
+        icon.src = '../images/added.png';
     } else {
-        icon.src = 'images/add.png';
+        icon.src = '../images/add.png';
     }
 }
 
