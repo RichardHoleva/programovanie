@@ -68,7 +68,7 @@ function renderFavorites() {
         favoritesSection.innerHTML = `
             <div class="empty-placeholder">
                 <p>You have nothing added, go and add something!</p>
-                <button onclick="location.href='BRABRAND_PAGE.html'" class="home-button">Go Home</button>
+                <button onclick="location.href='../html/brabrand_page.html'" class="home-button">Go Home</button>
             </div>
         `;
         return;
